@@ -20,22 +20,110 @@
   --space-l: clamp(2rem, calc(1.83rem + 0.87vw), 2.5rem);
   --space-xl: clamp(3rem, calc(2.74rem + 1.3vw), 3.75rem);
 
+  --ff-primary: 'Roboto', sans-serif;
   --color-primary: #114466;
   --color-secondary: #fff;
   --color-darkish: #5b6b81;
 
-  --border-radius: var(var(--space-s));
+  --border-radius: var(--space-s);
+  --border-thin: 2px;
+  --border-thick: 4px;
+
+  --measure: 50ch;
 }
 
 body {
   background-color: var(--color-primary);
   color: var(--color-secondary);
+  font-family: var(--ff-primary);
   font-size: var(--step-1);
   line-height: 1.5;
+  padding-inline: var(--space-l)
+}
+
+h1, h2, h3 {
+  line-height: 1.1;
+  letter-spacing: -0.05ch;
+}
+
+h1 {
+  font-size: var(--step-4);
+}
+
+h2 {
+  font-size: var(--step-3);
+}
+
+h3 {
+  font-size: var(--step-2);
 }
 
 p {
-  max-width: 50ch;
+  max-inline-size: var(--measure);
+}
+
+header {
+  margin-block-end: var(--space-m);
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.center {
+  box-sizing: content-box;
+  margin-inline: auto;
+  max-inline-size: var(--measure);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.stack > * {
+  margin-block-start: var(--space-xs, 1rem)
+}
+
+.box {
+  padding: var(--space-s);
+  border: var(--border-thin) solid;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  border-radius: var(--border-radius);
+}
+
+.box * {
+  color: inherit;
+}
+
+.answerBtn {
+  align-self: flex-start;
+  min-inline-size: 20ch;
+}
+
+.answerBtnContainer::after {
+  content: "";
+  height: 1px;
+  width: calc(var(--measure)*.8);
+  margin-block-start: var(--space-m);
+  margin-block-end: var(--space-xs);
+  background-color: var(--color-primary);
+}
+
+.mainPageContainer {
+  /* display: none; */
+}
+.questionContainer {
+  /* display: none; */
+}
+
+#nameLabel {
+  font-size: var(--step-0);
+  flex-shrink: 0;
 }
 
 :focus {
@@ -45,5 +133,23 @@ p {
 
 .flex-row {
   display: flex;
+  align-items: center;
+}
+
+.header-flex {
   justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+textarea {
+  resize: none;
+  flex-shrink: 1;
+  margin-inline-start: .5ch;
+}
+
+.submitNameContainer {
+  font-size: var(--step--1);
 }
