@@ -5,19 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <title>Code Quiz</title>
   </head>
   <body>
-    <header class="flex-row">
+    <header class="flex-row header-flex">
       <button id="highScoreBtn">High Scores</button>
       <p id="timerText">Time Left: <span id="timer"></span></p>
     </header>
-    <div class="mainPageContainer">
+
+    <main class="mainPageContainer center stack box">
       <h1 id="mainPageTitle">Coding Quiz Challenge</h1>
       <p id="mainPageText">
         Try to answer the following code-related questions
       </p>
       <button id="startQuizBtn">Start Quiz</button>
+    </main>
+
+    <div class="questionContainer center box">
+      <h2 class="question">Commonly used data types do NOT include ______?</h2>
+      <div class="answerBtnContainer stack">
+        <button class="answerBtn">
+          A: <span class="answer1">strings</span>
+        </button>
+        <button class="answerBtn">
+          B: <span class="answer2">booleans</span>
+        </button>
+        <button class="answerBtn">
+          C: <span class="answer3">alerts</span>
+        </button>
+        <button class="answerBtn">
+          D: <span class="answer4">numbers</span>
+        </button>
+      </div>
+      <div class="answerResponseContainer">
+        <p class="answerRespose text-center"></p>
+      </div>
+    </div>
+
+    <div class="enterNameBox center box text-center">
+      <h2>Nice Job!</h2>
+      <p class="finalScoreText">
+        Your Final Score is: <span class="userScore"></span>
+      </p>
+      <div class="flex-row submitNameContainer">
+        <label id="nameLabel" for="nameInput">Enter your name:</label
+        ><textarea
+          type="text"
+          name="textInput"
+          id="textInput"
+          cols="500"
+          rows="1"
+        ></textarea
+        ><button class="submitNameBtn">Submit</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
