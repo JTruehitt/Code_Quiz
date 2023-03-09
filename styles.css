@@ -20,7 +20,7 @@
   --space-l: clamp(2rem, calc(1.83rem + 0.87vw), 2.5rem);
   --space-xl: clamp(3rem, calc(2.74rem + 1.3vw), 3.75rem);
 
-  --ff-primary: 'Roboto', sans-serif;
+  --ff-primary: "Roboto", sans-serif;
   --color-primary: #114466;
   --color-secondary: #fff;
   --color-darkish: #5b6b81;
@@ -38,10 +38,12 @@ body {
   font-family: var(--ff-primary);
   font-size: var(--step-1);
   line-height: 1.5;
-  padding-inline: var(--space-l)
+  padding-inline: var(--space-l);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.1;
   letter-spacing: -0.05ch;
 }
@@ -84,7 +86,7 @@ textarea {
 }
 
 .stack > * {
-  margin-block-start: var(--space-xs, 1rem)
+  margin-block-start: var(--space-xs, 1rem);
 }
 
 .box {
@@ -102,23 +104,31 @@ textarea {
 .answerBtn {
   align-self: flex-start;
   min-inline-size: 20ch;
+  text-align: left;
+  padding-inline-start: var(--space-m);
 }
 
 .answerBtnContainer::after {
   content: "";
   height: 1px;
-  width: calc(var(--measure)*.8);
+  width: calc(var(--measure) * 0.8);
   margin-block-start: var(--space-m);
   margin-block-end: var(--space-xs);
   background-color: var(--color-primary);
 }
 
-.mainPageContainer {
-  /* display: none; */
+/* .mainPageContainer {
+  display: none;
 }
 .questionContainer {
-  /* display: none; */
+  display: none;
 }
+.enterNameContainer {
+  display: none;
+}
+.highScoresContainer {
+  display: none;
+} */
 
 #nameLabel {
   font-size: var(--step-0);
@@ -146,9 +156,18 @@ textarea {
 textarea {
   resize: none;
   flex-shrink: 1;
-  margin-inline-start: .5ch;
+  margin-inline-start: 0.5ch;
 }
 
 .submitNameContainer {
   font-size: var(--step--1);
+}
+
+.highScoresBtns {
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+[data="stack-notLast"] > :not(:last-child) {
+  margin-block-end: var(--space-s, 1rem);
 }

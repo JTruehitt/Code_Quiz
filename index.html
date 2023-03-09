@@ -15,8 +15,8 @@
   </head>
   <body>
     <header class="flex-row header-flex">
-      <button id="highScoreBtn">High Scores</button>
       <p id="timerText">Time Left: <span id="timer"></span></p>
+      <button id="highScoreBtn">High Scores</button>
     </header>
 
     <main class="mainPageContainer center stack box">
@@ -30,17 +30,17 @@
     <div class="questionContainer center box">
       <h2 class="question">Commonly used data types do NOT include ______?</h2>
       <div class="answerBtnContainer stack">
-        <button class="answerBtn">
-          A: <span class="answer1">strings</span>
+        <button class="answerBtn answerBtn1">
+          A: <span class="choiceA">strings</span>
         </button>
-        <button class="answerBtn">
-          B: <span class="answer2">booleans</span>
+        <button class="answerBtn answerBtn2">
+          B: <span class="choiceB">booleans</span>
         </button>
-        <button class="answerBtn">
-          C: <span class="answer3">alerts</span>
+        <button class="answerBtn answerBtn3">
+          C: <span class="choiceC">alerts</span>
         </button>
-        <button class="answerBtn">
-          D: <span class="answer4">numbers</span>
+        <button class="answerBtn answerBtn4">
+          D: <span class="choiceD">numbers</span>
         </button>
       </div>
       <div class="answerResponseContainer">
@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <div class="enterNameBox center box text-center">
+    <div class="enterNameContainer center box text-center" data="stack-notLast">
       <h2>Nice Job!</h2>
       <p class="finalScoreText">
         Your Final Score is: <span class="userScore"></span>
@@ -63,6 +63,16 @@
           rows="1"
         ></textarea
         ><button class="submitNameBtn">Submit</button>
+      </div>
+    </div>
+
+    <div class="highScoresContainer center box stack text-center">
+      <h2>High Scores</h2>
+      <p>Let's see how you stack up!</p>
+      <div class="highScoresList stack"></div>
+      <div class="highScoresBtns flex-row">
+        <button class="returnHome">Main Page</button>
+        <button class="clearScores">Clear List</button>
       </div>
     </div>
     <script src="script.js"></script>
