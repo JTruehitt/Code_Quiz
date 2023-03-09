@@ -119,7 +119,7 @@ textarea {
 
 /* .mainPageContainer {
   display: none;
-}
+} */
 .questionContainer {
   display: none;
 }
@@ -128,7 +128,7 @@ textarea {
 }
 .highScoresContainer {
   display: none;
-} */
+}
 
 #nameLabel {
   font-size: var(--step-0);
@@ -170,4 +170,8 @@ textarea {
 
 [data="stack-notLast"] > :not(:last-child) {
   margin-block-end: var(--space-s, 1rem);
+}
+
+#timerText {
+  visibility: hidden;
 }
