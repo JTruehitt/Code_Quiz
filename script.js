@@ -17,19 +17,20 @@ let choiceC = document.querySelector(".choiceC");
 let choiceD = document.querySelector(".choiceD");
 let answerResponse = document.querySelector(".answerResponse");
 let enterNameContainer = document.querySelector(".enterNameContainer");
+let userNameInput = document.querySelector("#textInput");
 let userScoreDisplay = document.querySelector(".userScoreDisplay");
 let submitNameBtn = document.querySelector(".submitNameBtn");
 let highScoresContainer = document.querySelector(".highScoresContainer");
-let highScoresDisplay = document.querySelector("highScoresList");
+let highScoresList = document.querySelector(".highScoresList");
 let returnHomeBtn = document.querySelector(".returnHome");
-let clearScoresBtn = document.querySelector("clearScores");
+let clearScoresBtn = document.querySelector(".clearScores");
 
 // Setting up variables to track and display
 let userScore = 0;
 let questionsAnswered = 0;
 let timeDeduct = 10;
-
-console.log(questionsAnswered);
+let userName = "";
+const highScores = [];
 
 // Setting up object array to hold questions, answers, and correct answers
 let questionBank = [
@@ -104,13 +105,31 @@ function timesUp() {
 function goHome() {
   highScoresContainer.style.display = "none";
   mainPageContainer.style.display = "flex";
+  questionsAnswered = 0;
+  userScore = 0;
 }
 
-//! figure this out
-function clearScores() {}
+function clearScores() {
+  highScoresList.innerHTML = "";
+  // localStorage.clear();
+}
 
-//! figure out how to post score
 function postScore() {
+  userName = userNameInput.value;
+  let highScore = { userName, userScore };
+  highScores.push(highScore);
+  highScores.sort((a, b) => b.userScore - a.userScore);
+  highScoresList.innerHTML = "";
+
+  for (let i = 0; i < highScores.length; i++) {
+    highScoresList.innerHTML +=
+      "<li>" +
+      highScores[i].userName +
+      ": " +
+      highScores[i].userScore +
+      "</li>";
+  }
+
   enterNameContainer.style.display = "none";
   highScoresContainer.style.display = "block";
   mainPageContainer.style.display = "none";
@@ -123,6 +142,14 @@ function quizOver() {
   enterNameContainer.style.display = "block";
   userScoreDisplay.innerText = userScore;
   submitNameBtn.addEventListener("click", postScore);
+  answerBtn1.removeEventListener("click", checkAnswer5);
+  answerBtn2.removeEventListener("click", checkAnswer5);
+  answerBtn3.removeEventListener("click", checkAnswer5);
+  answerBtn4.removeEventListener("click", checkAnswer5);
+  answerBtn1.addEventListener("click", checkAnswer1);
+  answerBtn2.addEventListener("click", checkAnswer1);
+  answerBtn3.addEventListener("click", checkAnswer1);
+  answerBtn4.addEventListener("click", checkAnswer1);
 }
 
 let delayQ2;
@@ -315,4 +342,7 @@ answerBtn3.addEventListener("click", checkAnswer1);
 answerBtn4.addEventListener("click", checkAnswer1);
 
 highScoreBtn.addEventListener("click", postScore);
-//! need to remove all button event listeners after first click
+
+//! notes - resize text box like it was.
+//! change button displays
+//! ensure function of high scores button
