@@ -47,13 +47,14 @@
       </p>
       <div class="flex-row submitNameContainer">
         <label id="nameLabel" for="nameInput">Enter your name:</label
-        ><textarea
+        ><textArea
           type="text"
           name="textInput"
           id="textInput"
-          cols="500"
+          size="50"
           rows="1"
-        ></textarea
+          columns="999"
+        ></textArea
         ><button class="submitNameBtn">Submit</button>
       </div>
     </div>
@@ -61,7 +62,7 @@
     <div class="highScoresContainer center box stack text-center">
       <h2>High Scores</h2>
       <p>Let's see how you stack up!</p>
-      <div class="highScoresList stack"></div>
+      <ol class="highScoresList stack"></ol>
       <div class="highScoresBtns flex-row">
         <button class="returnHome">Main Page</button>
         <button class="clearScores">Clear List</button>
