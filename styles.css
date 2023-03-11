@@ -66,11 +66,47 @@ p {
 
 header {
   margin-block-end: var(--space-m);
+  margin-block-start: var(--space-s);
 }
 
 button,
 textarea {
   font: inherit;
+  transition: 200ms ease-in-out;
+}
+
+button:not(.answerBtn) {
+  padding-inline: var(--space-s);
+  padding-block: .23rem;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border-radius: var(--border-radius);
+  border: var(--border-thick) solid var(--color-darkish);
+  box-shadow: 3px 3px 8px var(--color-darkish);
+}
+
+button:not(.answerBtn):hover,
+button:not(.answerBtn):focus {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: var(--border-thick) solid var(--color-primary);
+}
+
+#highScoreBtn {
+  background-color: var(--color-secondary);
+  color: var(--color-primary)
+}
+
+#highScoreBtn:hover,
+#highScoreBtn:focus {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border: var(--border-thick) solid var(--color-darkish);
+}
+
+button:not(.answerBtn):active {
+  scale: .97;
+  box-shadow: 2px 2px 4px var(--color-darkish);
 }
 .center {
   box-sizing: content-box;
@@ -103,9 +139,17 @@ textarea {
 
 .answerBtn {
   align-self: flex-start;
-  min-inline-size: 20ch;
+  min-inline-size: 25ch;
   text-align: left;
-  padding-inline-start: var(--space-m);
+  padding-inline-start: var(--space-l);
+  border: var(--border-thin) solid var(--color-primary);
+  background-color: var(--color-secondary);
+  border-radius: var(--border-radius);
+}
+
+.answerBtn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .answerBtnContainer::after {
@@ -135,13 +179,13 @@ textarea {
   flex-shrink: 0;
 }
 
-:focus {
-  outline: 3px solid var(--color-secondary);
-  outline-offset: 0.4ch;
+:focus-visible:not(textarea) {
+  outline: var(--border-thick) solid #dce745;
+  outline-style: inset;
 }
 
 .flex-row {
-  display: flex;
+  display: flex;      
   align-items: center;
 }
 
@@ -157,6 +201,7 @@ textarea {
   resize: none;
   flex-shrink: 1;
   margin-inline-start: 0.5ch;
+  inline-size: 100%;
 }
 
 .submitNameContainer {

@@ -28,12 +28,11 @@ let clearScoresBtn = document.querySelector(".clearScores");
 // Setting up variables to track and display
 let userScore = 0;
 let questionsAnswered = 0;
-let timeDeduct = 10;
 let userName = "";
 const highScores = [];
 
 // Setting up object array to hold questions, answers, and correct answers
-let questionBank = [
+const questionBank = [
   (question1 = {
     question: "Commonly used data types do NOT include:",
     A: "A: strings",
@@ -111,7 +110,7 @@ function goHome() {
 
 function clearScores() {
   highScoresList.innerHTML = "";
-  // localStorage.clear();
+  highScores.length = 0;
 }
 
 function postScore() {
@@ -133,13 +132,13 @@ function postScore() {
   enterNameContainer.style.display = "none";
   highScoresContainer.style.display = "block";
   mainPageContainer.style.display = "none";
-  returnHomeBtn.addEventListener("click", goHome);
   clearScoresBtn.addEventListener("click", clearScores);
 }
 
 function quizOver() {
   questionContainer.style.display = "none";
   enterNameContainer.style.display = "block";
+  answerResponse.innerText = "";
   userScoreDisplay.innerText = userScore;
   submitNameBtn.addEventListener("click", postScore);
   answerBtn1.removeEventListener("click", checkAnswer5);
@@ -170,6 +169,7 @@ function checkAnswer1() {
     answerResponse.innerText = "Sorry, that's not correct! :(";
     questionsAnswered++;
     timeLeft -= 10;
+    userScore -= 10;
     delayQ2 = setTimeout(function () {
       moveToQuestion2();
     }, 1000);
@@ -188,6 +188,7 @@ function checkAnswer2() {
     answerResponse.innerText = "Sorry, that's not correct! :(";
     questionsAnswered++;
     timeLeft -= 10;
+    userScore -= 10;
     delayQ3 = setTimeout(function () {
       moveToQuestion3();
     }, 1000);
@@ -206,6 +207,7 @@ function checkAnswer3() {
     answerResponse.innerText = "Sorry, that's not correct! :(";
     questionsAnswered++;
     timeLeft -= 10;
+    userScore -= 10;
     delayQ4 = setTimeout(function () {
       moveToQuestion4();
     }, 1000);
@@ -224,6 +226,7 @@ function checkAnswer4() {
     answerResponse.innerText = "Sorry, that's not correct! :(";
     questionsAnswered++;
     timeLeft -= 10;
+    userScore -= 10;
     delayQ5 = setTimeout(function () {
       moveToQuestion5();
     }, 1000);
@@ -242,6 +245,7 @@ function checkAnswer5() {
     answerResponse.innerText = "Sorry, that's not correct! :(";
     questionsAnswered++;
     timeLeft -= 10;
+    userScore -= 10;
     delayFinal = setTimeout(function () {
       quizOver();
     }, 1000);
@@ -250,6 +254,8 @@ function checkAnswer5() {
 
 function startQuiz() {
   timeLeft = 60;
+  userScore = 0;
+  questionsAnswered = 0;
   document.querySelector("#timerText").style.visibility = "visible";
   startTimer();
   mainPageContainer.style.display = "none";
@@ -341,8 +347,8 @@ answerBtn2.addEventListener("click", checkAnswer1);
 answerBtn3.addEventListener("click", checkAnswer1);
 answerBtn4.addEventListener("click", checkAnswer1);
 
-highScoreBtn.addEventListener("click", postScore);
-
-//! notes - resize text box like it was.
-//! change button displays
-//! ensure function of high scores button
+highScoreBtn.addEventListener("click", () => {
+  mainPageContainer.style.display = "none";
+  highScoresContainer.style.display = "flex";
+});
+returnHomeBtn.addEventListener("click", goHome);

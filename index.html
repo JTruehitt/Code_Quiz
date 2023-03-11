@@ -22,7 +22,9 @@
     <main class="mainPageContainer center stack box">
       <h1 id="mainPageTitle">Coding Quiz Challenge</h1>
       <p id="mainPageText">
-        Try to answer the following code-related questions
+        Try to answer the following code-related questions within the time
+        limit. Keep in mind that incorrect answers will penalize your score/time
+        by ten seconds!
       </p>
       <button id="startQuizBtn">Start Quiz</button>
     </main>
@@ -47,14 +49,13 @@
       </p>
       <div class="flex-row submitNameContainer">
         <label id="nameLabel" for="nameInput">Enter your name:</label
-        ><textArea
+        ><textarea
           type="text"
           name="textInput"
           id="textInput"
-          size="50"
           rows="1"
-          columns="999"
-        ></textArea
+          columns="9999"
+        ></textarea
         ><button class="submitNameBtn">Submit</button>
       </div>
     </div>
