@@ -339,8 +339,6 @@ function moveToQuestion5() {
   answerBtn4.removeEventListener("click", checkAnswer4);
 }
 
-//* Look into setTimeout() method.
-
 startBtn.addEventListener("click", startQuiz);
 answerBtn1.addEventListener("click", checkAnswer1);
 answerBtn2.addEventListener("click", checkAnswer1);
