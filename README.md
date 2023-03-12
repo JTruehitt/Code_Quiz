@@ -20,4 +20,4 @@ While the quiz is functional and meets all acceptance criteria as is, I would li
 
 
 ## Link to Deployed Application
-https://jtruehitt.github.io/Module_4_Challenge-Code_Quiz/
+https://jtruehitt.github.io/Code_Quiz/
