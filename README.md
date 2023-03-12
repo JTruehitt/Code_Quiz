@@ -5,13 +5,13 @@ In this challenge, I was tasked with building a multiple choice quiz that resemb
 
 This was a difficult challenge and really made me stretch my newly developed javascript skills. Throughout creating this application, I learned about the following topics:
 
---declaring global variables and linking document elements at the beginning of the script
---Created my first objects to store questions, choices, and answers
---Implemented setInterval and clearInterval
---Utilized multiple event listeners
---Used setTimeout to delay function call and set tempo of the quiz
---Dove deeper into DOM manipulation to create and hide elements as needed
---Utilized fluid CSS to provide a good experience regardless of device used
+- declaring global variables and linking document elements at the beginning of the script
+- Created my first objects to store questions, choices, and answers
+- Implemented setInterval and clearInterval
+- Utilized multiple event listeners
+- Used setTimeout to delay function call and set tempo of the quiz
+- Dove deeper into DOM manipulation to create and hide elements as needed
+- Utilized fluid CSS to provide a good experience regardless of device used
 
 While the quiz is functional and meets all acceptance criteria as is, I would like to revisit this in the future to refactor the code to cut down on the redundant functions to move between questions and checking each answer individually. I know there are ways to iterate through this more efficiently, so once I have a few more projects under my belt and a bit more grasp of these concepts, this will get an overhaul. 
 
