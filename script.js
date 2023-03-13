@@ -26,6 +26,7 @@ let returnHomeBtn = document.querySelector(".returnHome");
 let clearScoresBtn = document.querySelector(".clearScores");
 
 // Setting up variables to track and display
+// questionsAnswered variable helps to track if a user times out before answering questions and resets to 0 to ensure on the next play through they don't get pulled to the name entry screen prematurely
 let userScore = 0;
 let questionsAnswered = 0;
 let userName = "";
@@ -77,11 +78,14 @@ const questionBank = [
   }),
 ];
 
+// setting function to stop the countdown on call
 function stopTimer() {
   clearInterval(startTimer());
 }
-let timeLeft = 60;
+
 // Setting countdown function, which will be called on click of the start button.
+let timeLeft = 60;
+
 function startTimer() {
   const countdown = setInterval(function () {
     timeLeft--;
@@ -96,11 +100,13 @@ function startTimer() {
   }, 1000);
 }
 
+// setting function to stop the game once the timer is up
 function timesUp() {
   alert("Time is up! Let's see how you did. ");
   quizOver();
 }
 
+// setting function to be called on click of the retund home button, located on the high scores page
 function goHome() {
   highScoresContainer.style.display = "none";
   mainPageContainer.style.display = "flex";
@@ -108,11 +114,13 @@ function goHome() {
   userScore = 0;
 }
 
+// setting function to clear the list of scores on the high score page
 function clearScores() {
   highScoresList.innerHTML = "";
   highScores.length = 0;
 }
 
+// setting function to be called on name enter that will compund the user info into one string and post it to the high scores list
 function postScore() {
   userName = userNameInput.value;
   let highScore = { userName, userScore };
@@ -135,6 +143,7 @@ function postScore() {
   clearScoresBtn.addEventListener("click", clearScores);
 }
 
+// setting function to move user to name entry page once the quiz is over or time runs out
 function quizOver() {
   questionContainer.style.display = "none";
   enterNameContainer.style.display = "block";
@@ -151,12 +160,14 @@ function quizOver() {
   answerBtn4.addEventListener("click", checkAnswer1);
 }
 
+// setting empty variables to hold delays until next screen after question answer
 let delayQ2;
 let delayQ3;
 let delayQ4;
 let delayQ5;
 let delayFinal;
 
+// the following run of functions checks the answer to the current question, adjusts the score/time accordingly, provides feedback on if answer was correct, and then changes the question after a short delay.
 function checkAnswer1() {
   if (this.innerText == questionBank[0].Answer) {
     answerResponse.innerText = "Correct! :)";
@@ -252,6 +263,7 @@ function checkAnswer5() {
   }
 }
 
+// the following run of functions move to question screen, set the content for each question, and then reset the event listeners to allow to move to the next question.
 function startQuiz() {
   timeLeft = 60;
   userScore = 0;
@@ -339,6 +351,7 @@ function moveToQuestion5() {
   answerBtn4.removeEventListener("click", checkAnswer4);
 }
 
+// adds initial event listeners to start the quiz and check the first answer
 startBtn.addEventListener("click", startQuiz);
 answerBtn1.addEventListener("click", checkAnswer1);
 answerBtn2.addEventListener("click", checkAnswer1);
